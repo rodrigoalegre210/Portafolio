@@ -1,65 +1,53 @@
-import Image from "next/image";
+import ParticleBackground from "@/components/Three/ParticleBackground";
+import Navbar from "@/components/UI/Navbar";
+import AboutSection from "@/components/UI/AboutSection";
+import CompanyCarousel from "@/components/UI/CompanyCarousel"; // <-- Importamos el Carrusel
+import SkillsSection from "@/components/UI/SkillsSection";
+import ProjectsSection from "@/components/UI/ProjectsSection";
+
+import { Orbitron } from "next/font/google";
+const orbitron = Orbitron({ 
+  subsets: ["latin"], 
+  weight: ["400", "700", "900"] 
+});
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="relative w-full bg-[#050505]">
+      <Navbar />
+      <ParticleBackground />
+
+      {/* SECCIÓN 0: HERO */}
+      <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen pointer-events-none py-20">
+        {/* ... (Tu código de Iniciando queda igual) ... */}
+        <h1 className={`${orbitron.className} text-5xl md:text-7xl font-black tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-cyan-700 drop-shadow-[0_0_20px_rgba(0,243,255,0.6)]`}>
+          INICIANDO
+        </h1>
+        <div className="flex items-center gap-4 mt-6 font-mono">
+          <span className="w-12 h-[1px] bg-cyan-500/50"></span>
+          <p className="text-cyan-200 text-sm tracking-widest animate-pulse">
+            CONECTANDO AL SERVIDOR...
           </p>
+          <span className="w-12 h-[1px] bg-cyan-500/50"></span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-cyan-500/50">
+          <span>SYS.OP // V_1.0.4</span>
+          <span>ESTADO: SEGURO</span>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* SECCIÓN 1: SOBRE MÍ */}
+      <AboutSection />
+
+      {/* SECCIÓN EXTRA: CARRUSEL DE EMPRESAS */}
+      <CompanyCarousel /> {/* <-- Lo agregamos aquí */}
+
+      {/* SECCIÓN 2: SKILLS */}
+      <SkillsSection />
+      
+      {/* SECCIÓN 3: PROYECTOS */}
+      <ProjectsSection />
+
+    </main>
   );
 }
