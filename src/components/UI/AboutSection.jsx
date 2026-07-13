@@ -53,16 +53,16 @@ export default function AboutSection() {
           {/* Columna 2: Datos del Perfil (Ocupa el resto del espacio) */}
           <div className="flex-1 space-y-6 font-mono text-sm md:text-base text-cyan-100/80 leading-relaxed">
             <p>
-              <span className="text-cyan-400 font-bold">&gt; ROL_PRIMARIO:</span> Científico de Datos & Desarrollador Full Stack.
+              <span className="text-cyan-400 font-bold">&gt; ROL_PRIMARIO:</span> Científico de Datos & Desarrollador de IA.
             </p>
             <p>
-              <span className="text-cyan-400 font-bold">&gt; HISTORIAL_OPERATIVO:</span> Evolución táctica desde el Análisis de Negocios hacia la ingeniería de software profunda. Capacidad probada para traducir requerimientos comerciales en arquitecturas de código escalables y precisas.
+              <span className="text-cyan-400 font-bold">&gt; HISTORIAL_OPERATIVO:</span> Formación en Ciencia de Datos con evolución hacia el desarrollo de software y la automatización con IA. Capacidad probada para traducir requerimientos de negocio en arquitecturas de código escalables y sistemas de datos que funcionan en producción, no solo en teoría.
             </p>
             <p>
-              <span className="text-cyan-400 font-bold">&gt; ENFOQUE:</span> Especialista en el desarrollo de Inteligencia Artificial y la manipulación de datos complejos. Apasionado por la resolución de problemas lógicos y matemáticos aplicados a la tecnología.
+              <span className="text-cyan-400 font-bold">&gt; ENFOQUE:</span> Especialista en el desarrollo de soluciones de IA y automatización de procesos de datos. Combino análisis, desarrollo y gobernanza de datos para construir sistemas medibles, no solo prototipos.
             </p>
             <p>
-              <span className="text-cyan-400 font-bold">&gt; OBJETIVO_SISTEMA:</span> Desplegar soluciones tecnológicas de alto impacto a nivel global, optimizando procesos mediante IA y código limpio, con proyección operativa hacia el mercado norteamericano.
+              <span className="text-cyan-400 font-bold">&gt; OBJETIVO_SISTEMA:</span> Construir e implementar soluciones de datos e IA que resuelvan problemas reales, con la ambición de escalarlas a un impacto cada vez mayor.
             </p>
           </div>
 

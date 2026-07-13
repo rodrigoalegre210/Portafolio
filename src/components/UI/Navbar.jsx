@@ -33,7 +33,7 @@ export default function Navbar() {
         className="text-cyan-400 font-bold tracking-widest text-xl drop-shadow-[0_0_8px_rgba(0,243,255,0.8)] cursor-pointer"
         onClick={(e) => handleScroll(e, 'about')} 
       >
-        [ RODRI_OS ]
+        [ RODRIGO_ALEGRE ]
       </div>
 
       <ul className="flex gap-10 font-mono text-sm text-cyan-700">
@@ -49,7 +49,7 @@ export default function Navbar() {
       </ul>
 
       <button className="px-5 py-2 text-xs font-mono font-bold text-cyan-400 border border-cyan-500 hover:bg-cyan-500 hover:text-[#050505] transition-all shadow-[0_0_10px_rgba(0,243,255,0.2)] hover:shadow-[0_0_20px_rgba(0,243,255,0.8)]">
-        DESCARGAR_CV.EXE
+        DESCARGAR_CV
       </button>
     </nav>
   );

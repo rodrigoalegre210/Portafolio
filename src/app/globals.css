@@ -22,8 +22,9 @@ body::-webkit-scrollbar {
 }
 
 .animate-infinite-scroll {
-  /* Bajamos la velocidad a 40 segundos para que puedas leer bien los logos */
-  animation: infinite-scroll 80s linear infinite; 
+  /* Velocidad lenta pero no excesiva: 40s para leer bien los logos sin que se sienta detenido */
+  animation: infinite-scroll 40s linear infinite;
+  will-change: transform;
 }
 
 /* Esta clase pausa ambos vagones al mismo tiempo cuando pasas el mouse */
