@@ -2,32 +2,38 @@
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useBoot } from "@/components/UI/BootContext";
 
 // 1. El Núcleo de Datos (Basado en la esfera de AC Black Flag)
-function DataCore() {
+function DataCore({ revealed }) {
   const coreRef = useRef();
 
   useFrame((state, delta) => {
     // Rotación constante y lenta del núcleo
     coreRef.current.rotation.y -= delta * 0.1;
     coreRef.current.rotation.z += delta * 0.05;
-    
+
     // Efecto de paralaje: el núcleo sigue un poco al mouse
     const mouseX = state.pointer.x * 0.5;
     const mouseY = state.pointer.y * 0.5;
     coreRef.current.position.x += (mouseX - coreRef.current.position.x) * 0.05;
     coreRef.current.position.y += (mouseY - coreRef.current.position.y) * 0.05;
+
+    // "Encendido": la esfera crece desde cero hasta su tamaño real.
+    const target = revealed ? 1 : 0;
+    const s = coreRef.current.scale.x + (target - coreRef.current.scale.x) * delta * 2.2;
+    coreRef.current.scale.set(s, s, s);
   });
 
   return (
-    <mesh ref={coreRef}>
+    <mesh ref={coreRef} scale={0}>
       {/* Usamos un Icosaedro para que parezca una red de nodos matemáticos */}
       <icosahedronGeometry args={[1.8, 2]} />
-      <meshBasicMaterial 
+      <meshBasicMaterial
         color="#00f3ff" /* Cian neón */
-        wireframe={true} 
-        transparent 
-        opacity={0.15} 
+        wireframe={true}
+        transparent
+        opacity={0.15}
       />
     </mesh>
   );
@@ -81,11 +87,27 @@ function Particles() {
 
 // 3. El Escenario Principal
 export default function ParticleBackground() {
+  const { booted } = useBoot();
+
   return (
-    <Canvas camera={{ position: [0, 0, 4] }} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+    <Canvas
+      camera={{ position: [0, 0, 4] }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0,
+        // El fondo aparece primero (fade), antes que los textos y botones.
+        opacity: booted ? 1 : 0,
+        transition: "opacity 1500ms ease-out",
+        transitionDelay: "300ms",
+      }}
+    >
       {/* Niebla oscura para dar profundidad infinita */}
       <fog attach="fog" args={["#050505", 2, 10]} />
-      <DataCore />
+      <DataCore revealed={booted} />
       <Particles />
     </Canvas>
   );

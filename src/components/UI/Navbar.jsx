@@ -1,7 +1,10 @@
-"use client"; 
+"use client";
+
+import { useBoot } from "./BootContext";
 
 export default function Navbar() {
-  
+  const { booted } = useBoot(); // aparece cuando el sistema se enciende
+
   // Función avanzada para manejo de scroll
   const handleScroll = (e, targetId) => {
     e.preventDefault(); 
@@ -27,7 +30,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 py-5 bg-[#050505]/40 backdrop-blur-md border-b border-cyan-500/20">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 py-5 bg-[#050505]/40 backdrop-blur-md border-b border-cyan-500/20 transition-all duration-700 ease-out ${
+        booted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+      }`}
+      style={{ transitionDelay: "700ms" }}
+    >
+
       
       <div 
         className="text-cyan-400 font-bold tracking-widest text-xl drop-shadow-[0_0_8px_rgba(0,243,255,0.8)] cursor-pointer"

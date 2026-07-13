@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Orbitron } from "next/font/google";
+import { useBoot } from "./BootContext";
 
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
@@ -26,6 +27,7 @@ const HOLD_MS = 600;       // pausa "cargando" tras cada etapa (sensación de ar
 const FINAL_HOLD = 1100;   // pausa extra en 100% antes del fade
 
 export default function BootScreen() {
+  const { setBooted } = useBoot(); // avisa al resto de la página que ya arrancó
   const [lines, setLines] = useState([]);     // líneas ya tipeadas
   const [current, setCurrent] = useState(""); // línea que se está tipeando
   const [progress, setProgress] = useState(0);
@@ -126,13 +128,18 @@ export default function BootScreen() {
     };
   }, []);
 
-  // Al iniciar el fade-out: restauramos scroll y desmontamos al terminar
+  // Al iniciar el fade-out: restauramos scroll y desmontamos al terminar.
+  // Cuando el overlay ya se retiró del todo, "encendemos" el sistema para que
+  // el fondo y luego el contenido aparezcan en cascada (efecto de arranque).
   useEffect(() => {
     if (!done) return;
     document.body.style.overflow = "";
-    const t = setTimeout(() => setHidden(true), 700); // == duración de la transición
+    const t = setTimeout(() => {
+      setHidden(true);
+      setBooted(true);
+    }, 700); // == duración de la transición
     return () => clearTimeout(t);
-  }, [done]);
+  }, [done, setBooted]);
 
   if (hidden) return null;
 
