@@ -5,22 +5,25 @@ import { Orbitron } from "next/font/google";
 
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
-// Cada etapa: el texto se tipea rápido y luego la barra "carga" hasta su objetivo
+// Cada etapa: el texto se tipea (con cursor) y luego la barra "carga" al objetivo.
+// glitch: true  -> la línea se traba en partes y luego escribe en ráfaga.
+// glitch: false -> la línea se tipea normal y pareja.
 const STAGES = [
-  { text: "> INICIALIZANDO NÚCLEO DEL SISTEMA...", progress: 20 },
-  { text: "> CARGANDO MÓDULOS DE INTERFAZ...", progress: 45 },
-  { text: "> RENDERIZANDO ENTORNO 3D...", progress: 68 },
-  { text: "> ESTABLECIENDO CONEXIÓN SEGURA...", progress: 88 },
-  { text: "> SISTEMA LISTO.", progress: 100 },
+  { text: "> INICIALIZANDO NÚCLEO DEL SISTEMA...", progress: 20, glitch: true },
+  { text: "> CARGANDO MÓDULOS DE INTERFAZ...", progress: 45, glitch: false },
+  { text: "> RENDERIZANDO ENTORNO 3D...", progress: 68, glitch: true },
+  { text: "> ESTABLECIENDO CONEXIÓN SEGURA...", progress: 88, glitch: false },
+  { text: "> SISTEMA LISTO.", progress: 100, glitch: true },
 ];
 
-const TYPE_SPEED = 16;    // ms por carácter en las ráfagas rápidas
-const STUTTER_CHANCE = 0.13; // probabilidad de que un carácter "se trabe"
-const STUTTER_MIN = 120;  // pausa mínima de una traba (ms)
-const STUTTER_MAX = 340;  // pausa máxima de una traba (ms)
-const FILL_MS = 1500;     // cuánto tarda la barra en llegar al objetivo de cada etapa
-const HOLD_MS = 600;      // pausa "cargando" tras cada etapa (sensación de arranque)
-const FINAL_HOLD = 1100;  // pausa extra en 100% antes del fade
+const NORMAL_SPEED = 40;   // ms por carácter en tipeo normal (con variación humana)
+const BURST_SPEED = 9;     // ms por carácter en la ráfaga tras una traba
+const STUTTER_CHANCE = 0.17; // prob. de que una línea "glitch" se trabe en un carácter
+const STUTTER_MIN = 220;   // pausa mínima de una traba (ms)
+const STUTTER_MAX = 520;   // pausa máxima de una traba (ms)
+const FILL_MS = 1500;      // cuánto tarda la barra en llegar al objetivo de cada etapa
+const HOLD_MS = 600;       // pausa "cargando" tras cada etapa (sensación de arranque)
+const FINAL_HOLD = 1100;   // pausa extra en 100% antes del fade
 
 export default function BootScreen() {
   const [lines, setLines] = useState([]);     // líneas ya tipeadas
@@ -46,65 +49,64 @@ export default function BootScreen() {
 
     // Anima la barra de 'from' a 'to' en 'duration' ms, con micro-pausas
     // mecánicas para que se sienta que el sistema "trabaja" cargando.
-    const animateProgress = async (from, to, duration) => {
+    const animateProgress = async (from, to, duration, canStall = true) => {
       const STEP_MS = 55;
       const steps = Math.max(1, Math.round(duration / STEP_MS));
       for (let i = 1; i <= steps; i++) {
         if (cancelled) return;
         setProgress(Math.round(from + ((to - from) * i) / steps));
         // De vez en cuando la barra se "atasca" un instante antes de seguir.
-        const stall = Math.random() < 0.12 ? 90 + Math.random() * 160 : 0;
+        const stall = canStall && Math.random() < 0.12 ? 90 + Math.random() * 160 : 0;
         await delay(STEP_MS + stall);
       }
     };
 
-    // Tipea 'text' con ráfagas rápidas y "trabas" aleatorias (sensación glitch).
-    const typeText = async (text) => {
-      for (let i = 1; i <= text.length; i++) {
+    // Tipea 'text' carácter por carácter mostrando el cursor.
+    // Si glitch=true, de a ratos se traba (pausa larga con el cursor) y luego
+    // escupe varios caracteres en ráfaga. Si glitch=false, tipea parejo.
+    const typeText = async (text, glitch) => {
+      let i = 0;
+      let burst = 0; // caracteres que quedan por escribir en modo ráfaga
+      while (i < text.length) {
         if (cancelled) return;
+        i++;
         setCurrent(text.slice(0, i));
-        // Algunos caracteres al azar hacen que el tipeo "se trabe" un instante.
-        const char = text[i - 1];
-        let wait;
-        if (Math.random() < STUTTER_CHANCE) {
-          wait = STUTTER_MIN + Math.random() * (STUTTER_MAX - STUTTER_MIN);
-        } else if (char === " ") {
-          wait = TYPE_SPEED + 45; // pausa leve entre palabras
-        } else {
-          wait = TYPE_SPEED;
+
+        // En plena ráfaga: escribe rapidísimo hasta agotarla.
+        if (burst > 0) {
+          burst--;
+          await delay(BURST_SPEED);
+          continue;
         }
-        await delay(wait);
+
+        // Traba: solo en líneas glitch, ni al principio ni al final de la línea.
+        if (glitch && i > 2 && i < text.length && Math.random() < STUTTER_CHANCE) {
+          await delay(STUTTER_MIN + Math.random() * (STUTTER_MAX - STUTTER_MIN));
+          burst = 3 + Math.floor(Math.random() * 4); // 3–6 chars en ráfaga
+          continue;
+        }
+
+        // Tipeo normal con leve variación para que no suene robótico.
+        await delay(NORMAL_SPEED + (Math.random() * 24 - 12));
       }
     };
 
     const run = async () => {
-      // Accesibilidad: si el sistema pide "reducir movimiento", evitamos el
-      // efecto glitch/trabas y las micro-pausas de la barra, PERO igual
-      // mostramos cada mensaje por tramos y con tiempo para leerlos.
-      if (reduce) {
-        for (const stage of STAGES) {
-          if (cancelled) return;
-          setLines((p) => [...p, stage.text]); // línea completa, sin tipeo
-          setProgress(stage.progress);          // la barra sube por tramos
-          await delay(950);                     // tiempo para leer
-        }
-        await delay(FINAL_HOLD);
-        if (!cancelled) setDone(true);
-        return;
-      }
-
+      // Un solo camino: SIEMPRE se tipea letra por letra con cursor.
+      // Bajo "reducir movimiento" solo apagamos lo brusco (trabas/ráfagas
+      // glitch y los atascos de la barra); el efecto de tipeo se mantiene.
       let prev = 0;
       for (const stage of STAGES) {
-        // 1) Tipeo con trabas y ráfagas
-        await typeText(stage.text);
+        // 1) Tipeo con cursor. Las trabas/ráfagas solo si NO hay reduce.
+        await typeText(stage.text, !reduce && stage.glitch);
         if (cancelled) return;
 
         // 2) Fijamos la línea ya completa
         setLines((p) => [...p, stage.text]);
         setCurrent("");
 
-        // 3) La barra carga lentamente hasta el objetivo de la etapa
-        await animateProgress(prev, stage.progress, FILL_MS);
+        // 3) La barra carga hasta el objetivo (sin atascos si hay reduce)
+        await animateProgress(prev, stage.progress, FILL_MS, !reduce);
         prev = stage.progress;
 
         // 4) Pausa "cargando" para dar la sensación de sistema iniciándose
