@@ -31,64 +31,61 @@ export default function SkillsSection() {
             </h3>
             <ul className="space-y-4 font-mono text-sm text-cyan-100/70">
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#ff003c] font-bold">&gt;</span> Python (Estructuras & Análisis)
+                <span className="text-[#ff003c] font-bold">&gt;</span> Python (Análisis & Machine Learning)
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#ff003c] font-bold">&gt;</span> Modelos de Machine Learning
+                <span className="text-[#ff003c] font-bold">&gt;</span> Machine Learning
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#ff003c] font-bold">&gt;</span> SQL & Manipulación de Datos
+                <span className="text-[#ff003c] font-bold">&gt;</span> Web Scraping
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#ff003c] font-bold">&gt;</span> Matemáticas Aplicadas (IA)
+                <span className="text-[#ff003c] font-bold">&gt;</span> Gobernanza de Datos
               </li>
             </ul>
           </div>
 
-          {/* MODULO 2: FULL STACK */}
+          {/* MODULO 2: DESARROLLO */}
           <div className="relative border border-cyan-900/50 bg-black/40 p-6 group hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.15)] overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,243,255,0.02)_50%)] bg-[length:100%_4px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             
             <h3 className="text-cyan-300 font-mono text-lg mb-6 border-b border-cyan-500/20 pb-2 flex items-center justify-between">
-              <span>[ DESARROLLO_WEB ]</span>
-              <span className="text-xs text-cyan-700">FULL_STACK</span>
+              <span>[ DESARROLLO ]</span>
+              <span className="text-xs text-cyan-700">BACKEND_MOBILE</span>
             </h3>
             <ul className="space-y-4 font-mono text-sm text-cyan-100/70">
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#0055ff] font-bold">&gt;</span> React.js & Next.js
+                <span className="text-[#0055ff] font-bold">&gt;</span> Flutter
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#0055ff] font-bold">&gt;</span> Node.js & APIs REST
+                <span className="text-[#0055ff] font-bold">&gt;</span> PostgreSQL & SQL Server
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#0055ff] font-bold">&gt;</span> Arquitectura Escalable
-              </li>
-              <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#0055ff] font-bold">&gt;</span> Tailwind CSS & UI/UX
+                <span className="text-[#0055ff] font-bold">&gt;</span> MySQL
               </li>
             </ul>
           </div>
 
-          {/* MODULO 3: LÓGICA Y NEGOCIOS */}
+          {/* MODULO 3: AUTOMATIZACIÓN Y NEGOCIO */}
           <div className="relative border border-cyan-900/50 bg-black/40 p-6 group hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.15)] overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,243,255,0.02)_50%)] bg-[length:100%_4px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             
             <h3 className="text-cyan-300 font-mono text-lg mb-6 border-b border-cyan-500/20 pb-2 flex items-center justify-between">
-              <span>[ PROTOCOLOS_OP ]</span>
+              <span>[ PROTOCOLOS ]</span>
               <span className="text-xs text-cyan-700">ESTRATEGIA</span>
             </h3>
             <ul className="space-y-4 font-mono text-sm text-cyan-100/70">
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Business Analysis
+                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> n8n (Automatización con IA)
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Resolución Lógica
+                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Power BI
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Inglés Técnico
+                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> AWS
               </li>
               <li className="flex items-center gap-3 group-hover:text-cyan-200 transition-colors">
-                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Gestión de Proyectos
+                <span className="text-[#00f3ff] font-bold animate-pulse">&gt;</span> Google Cloud
               </li>
             </ul>
           </div>
