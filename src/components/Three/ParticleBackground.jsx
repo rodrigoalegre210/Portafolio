@@ -13,9 +13,11 @@ function DataCore({ revealed }) {
     coreRef.current.rotation.y -= delta * 0.1;
     coreRef.current.rotation.z += delta * 0.05;
 
-    // Efecto de paralaje: el núcleo sigue un poco al mouse
-    const mouseX = state.pointer.x * 0.5;
-    const mouseY = state.pointer.y * 0.5;
+    // Efecto de paralaje: el núcleo sigue un poco al mouse.
+    // Factor reducido (0.3) para que la esfera quede más contenida en el centro
+    // y no invada el indicador "DESPLAZAR PARA ACCEDER" de abajo.
+    const mouseX = state.pointer.x * 0.3;
+    const mouseY = state.pointer.y * 0.3;
     coreRef.current.position.x += (mouseX - coreRef.current.position.x) * 0.05;
     coreRef.current.position.y += (mouseY - coreRef.current.position.y) * 0.05;
 

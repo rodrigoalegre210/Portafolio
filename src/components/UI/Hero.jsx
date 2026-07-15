@@ -22,21 +22,28 @@ export default function Hero() {
 
   return (
     <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen pointer-events-none py-20 px-6">
+      {/* Backdrop oscuro radial: separa el texto del fondo 3D (partículas + esfera)
+          sin tapar las partículas de los bordes. Queda por encima del canvas (z-0)
+          pero por debajo del contenido del hero. */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_55%_at_center,rgba(5,5,5,0.88)_0%,rgba(5,5,5,0.55)_45%,transparent_78%)] pointer-events-none" />
+
       {/* Nombre */}
       <h1
         {...reveal(
           1000,
-          `${orbitron.className} text-center text-5xl md:text-8xl font-black tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-cyan-200 via-cyan-400 to-cyan-800 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]`
+          `${orbitron.className} text-center text-4xl md:text-7xl font-black tracking-[0.12em] leading-tight text-transparent bg-clip-text bg-gradient-to-b from-cyan-200 via-cyan-400 to-cyan-800 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]`
         )}
       >
-        RODRIGO ALEGRE
+        CIENCIA DE DATOS
+        <br />
+        &amp; DESARROLLO DE IA
       </h1>
 
       {/* Rol */}
       <div {...reveal(1250, "flex items-center gap-4 mt-6 font-mono")}>
         <span className="w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
-        <p className="text-cyan-100 text-xs md:text-base tracking-[0.25em]">
-          CIENTÍFICO DE DATOS <span className="text-cyan-500">//</span> DESARROLLADOR DE IA
+        <p className="text-cyan-100 text-xs md:text-base tracking-[0.25em] [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]">
+          MACHINE LEARNING <span className="text-cyan-500">//</span> AUTOMATIZACIÓN <span className="text-cyan-500">//</span> DATOS EN PRODUCCIÓN
         </p>
         <span className="w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
       </div>
@@ -45,7 +52,7 @@ export default function Hero() {
       <p
         {...reveal(
           1500,
-          "mt-8 max-w-2xl text-center font-mono text-sm md:text-base text-cyan-100/70 leading-relaxed"
+          "mt-8 max-w-2xl text-center font-mono text-sm md:text-base text-cyan-100/80 leading-relaxed [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]"
         )}
       >
         Construyo soluciones de <span className="text-cyan-300">datos e IA</span> que resuelven problemas reales y llegan a producción — no solo prototipos.
@@ -74,7 +81,7 @@ export default function Hero() {
 
       {/* Indicador de scroll (el pulso vive en el hijo para no chocar con el fade) */}
       <div {...reveal(2050, "absolute bottom-24")}>
-        <div className="flex flex-col items-center gap-2 font-mono text-[10px] tracking-widest text-cyan-500/50 animate-pulse">
+        <div className="flex flex-col items-center gap-2 font-mono text-xs md:text-sm tracking-[0.3em] text-cyan-200/90 animate-pulse [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]">
           <span>DESPLAZAR PARA ACCEDER</span>
           <span className="text-lg leading-none">▼</span>
         </div>
@@ -84,7 +91,7 @@ export default function Hero() {
       <div
         {...reveal(
           2250,
-          "absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-cyan-500/50"
+          "absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-cyan-400/70 [text-shadow:0_2px_10px_rgba(0,0,0,0.9)]"
         )}
       >
         <span>SYS.OP // V_1.0.4</span>
