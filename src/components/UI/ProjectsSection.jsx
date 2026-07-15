@@ -3,30 +3,27 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: "PRJ_01",
-      title: "ANÁLISIS PREDICTIVO DE MERCADO",
+      title: "BIVLO — SISTEMA DE GESTIÓN CON IA",
       status: "DESENCRIPTADO",
-      desc: "Motor de machine learning diseñado para procesar volúmenes de datos históricos y predecir tendencias de valor en activos digitales mediante algoritmos de regresión.",
-      tech: ["Python", "TensorFlow", "Pandas", "SQL"],
-      github: "#",
-      demo: "#"
+      desc: "Sistema de gestión empresarial (SaaS) para PyMEs con núcleo de IA propio: segmentación de clientes por Machine Learning (K-Means) y predicción de quiebres de stock mediante regresión, sin depender de APIs externas pagas.",
+      tech: ["Python", "FastAPI", "React.js", "PostgreSQL", "Scikit-learn"],
+      github: "https://github.com/rodrigoalegre210/Sistema-Contable"
     },
     {
       id: "PRJ_02",
-      title: "PLATAFORMA DE GESTIÓN B2B",
+      title: "NEOSCORE AI — CREDIT SCORING CONDUCTUAL",
       status: "DESENCRIPTADO",
-      desc: "Aplicación web full-stack escalable para optimizar procesos y requerimientos comerciales. Interfaz de alto rendimiento y arquitectura de base de datos relacional.",
-      tech: ["Next.js", "Node.js", "Tailwind CSS", "PostgreSQL"],
-      github: "#",
-      demo: "#"
+      desc: "Motor de credit scoring para fintech que evalúa el riesgo crediticio en tiempo real analizando comportamiento transaccional real, en vez de depender de historiales estáticos de burós tradicionales.",
+      tech: ["Python", "FastAPI", "Next.js", "PostgreSQL"],
+      github: "https://github.com/rodrigoalegre210/NeoScore-AI"
     },
     {
       id: "PRJ_03",
-      title: "MÓDULO NLP BILINGÜE (ES/EN)",
+      title: "ANÁLISIS DE VENTAS DE SUPERMERCADO",
       status: "DESENCRIPTADO",
-      desc: "Modelo de Procesamiento de Lenguaje Natural (NLP) enfocado en el análisis de sentimiento y traducción técnica en tiempo real para optimizar la comunicación corporativa.",
-      tech: ["Python", "PyTorch", "React", "FastAPI"],
-      github: "#",
-      demo: "#"
+      desc: "Análisis exploratorio y visualización de datos de ventas: rendimiento por sucursal, comportamiento de clientes y métodos de pago, con un dashboard web simple para explorar los resultados.",
+      tech: ["Python", "Jupyter Notebook", "Pandas"],
+      github: "https://github.com/rodrigoalegre210/Analisis-Supermercados"
     }
   ];
 
@@ -96,11 +93,13 @@ export default function ProjectsSection() {
 
                   {/* Enlaces (Estilo Línea de Comandos) */}
                   <div className="flex gap-4 font-mono text-xs font-bold">
-                    <a href={project.github} className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_5px_rgba(0,243,255,0.8)] transition-all">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-600 hover:text-cyan-300 hover:drop-shadow-[0_0_5px_rgba(0,243,255,0.8)] transition-all"
+                    >
                       [VER_CÓDIGO]
-                    </a>
-                    <a href={project.demo} className="text-[#0055ff] hover:text-blue-300 hover:drop-shadow-[0_0_5px_rgba(0,85,255,0.8)] transition-all">
-                      [EJECUTAR_DEMO]
                     </a>
                   </div>
 
