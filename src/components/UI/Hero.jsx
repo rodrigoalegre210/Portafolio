@@ -62,7 +62,7 @@ export default function Hero() {
       <div
         {...reveal(
           1750,
-          "mt-12 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto"
+          "mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto"
         )}
       >
         <a
@@ -80,7 +80,7 @@ export default function Hero() {
       </div>
 
       {/* Indicador de scroll (el pulso vive en el hijo para no chocar con el fade) */}
-      <div {...reveal(2050, "absolute bottom-24")}>
+      <div {...reveal(2050, "absolute bottom-8 sm:bottom-24")}>
         <div className="flex flex-col items-center gap-2 font-mono text-xs md:text-sm tracking-[0.3em] text-cyan-200/90 animate-pulse [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]">
           <span>DESPLAZAR PARA ACCEDER</span>
           <span className="text-lg leading-none">▼</span>
@@ -91,7 +91,7 @@ export default function Hero() {
       <div
         {...reveal(
           2250,
-          "absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-cyan-400/70 [text-shadow:0_2px_10px_rgba(0,0,0,0.9)]"
+          "absolute bottom-10 hidden sm:flex w-full justify-between px-10 text-xs font-mono text-cyan-400/70 [text-shadow:0_2px_10px_rgba(0,0,0,0.9)]"
         )}
       >
         <span>SYS.OP // V_1.0.4</span>
