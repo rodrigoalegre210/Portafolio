@@ -80,7 +80,7 @@ export default function Hero() {
       </div>
 
       {/* Indicador de scroll (el pulso vive en el hijo para no chocar con el fade) */}
-      <div {...reveal(2050, "relative mt-12 sm:mt-0 sm:absolute sm:bottom-24")}>
+      <div {...reveal(2050, "relative mt-10 [@media(min-height:860px)]:mt-0 [@media(min-height:860px)]:absolute [@media(min-height:860px)]:bottom-24")}>
         <div className="flex flex-col items-center gap-2 font-mono text-xs md:text-sm tracking-[0.3em] text-cyan-200/90 animate-pulse [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]">
           <span>DESPLAZAR PARA ACCEDER</span>
           <span className="text-lg leading-none">▼</span>
