@@ -55,7 +55,7 @@ export default function Hero() {
           "mt-8 max-w-2xl text-center font-mono text-sm md:text-base text-cyan-100/80 leading-relaxed [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]"
         )}
       >
-        Construyo soluciones de <span className="text-cyan-300">datos e IA</span> que resuelven problemas reales y llegan a producción — no solo prototipos.
+        Construyo soluciones de <span className="text-cyan-300">datos e IA</span> que resuelven problemas reales y llegan a producción.
       </p>
 
       {/* Botones de acción */}

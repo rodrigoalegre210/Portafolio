@@ -56,7 +56,7 @@ export default function AboutSection() {
               <span className="text-cyan-400 font-bold">&gt; ROL_PRIMARIO:</span> Científico de Datos & Desarrollador de IA.
             </p>
             <p>
-              <span className="text-cyan-400 font-bold">&gt; HISTORIAL_OPERATIVO:</span> Formación en Ciencia de Datos con evolución hacia el desarrollo de software y la automatización con IA. Capacidad probada para traducir requerimientos de negocio en arquitecturas de código escalables y sistemas de datos que funcionan en producción, no solo en teoría.
+              <span className="text-cyan-400 font-bold">&gt; HISTORIAL_OPERATIVO:</span> Formación en Ciencia de Datos con evolución hacia el desarrollo de software y la automatización con IA. Capacidad probada para traducir requerimientos de negocio en arquitecturas de código escalables y sistemas de datos que funcionan en producción.
             </p>
             <p>
               <span className="text-cyan-400 font-bold">&gt; ENFOQUE:</span> Especialista en el desarrollo de soluciones de IA y automatización de procesos de datos. Combino análisis, desarrollo y gobernanza de datos para construir sistemas medibles, no solo prototipos.
