@@ -66,8 +66,22 @@ img {
   will-change: transform;
 }
 
-/* Los logos no son blanco de eventos: así no se pueden seleccionar/arrastrar mientras
-   la marquesina se mueve. El clic igual llega al enlace contenedor y el hover funciona
+/* Blindaje anti-selección del carrusel completo (esto es lo que frenó los "cuadraditos
+   celestes tipo QR"): NINGÚN elemento del carrusel se puede seleccionar ni arrastrar.
+   En escritorio, Chrome permite empezar un arrastre sobre el enlace y extender la
+   selección sobre el logo PNG (lo resalta aunque la imagen tenga user-select:none),
+   por eso lo aplicamos a TODO el subárbol, no solo a la imagen. */
+.carousel-track,
+.carousel-track * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+/* Además, los logos no son blanco de eventos de puntero: no se pueden agarrar para
+   seleccionar/arrastrar. El clic igual llega al enlace contenedor y el hover funciona
    porque los efectos son a nivel del grupo (group-hover), no de la imagen. */
 .carousel-track img {
   pointer-events: none;
