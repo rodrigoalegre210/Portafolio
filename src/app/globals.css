@@ -26,10 +26,22 @@ body {
      así no aparecen esos "pixeles celestes" (resaltado de selección) sobre iconos y textos */
   -webkit-user-select: none;
   user-select: none;
+  /* Evita el menú/callout de iOS al mantener presionado (dispara la selección rota) */
+  -webkit-touch-callout: none;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* Las imágenes (logos PNG transparentes) no deben poder arrastrarse ni seleccionarse:
+   al hacerlo en el celu, el navegador pintaba solo los píxeles opacos con el color de
+   selección y se veían como "cuadrados tipo QR" celestes. */
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Por si algo llegara a seleccionarse, que el resaltado sea discreto y no un bloque celeste */
@@ -39,19 +51,15 @@ body::-webkit-scrollbar {
 }
 
 /* === Animación para el Carrusel Infinito === */
-/* Usamos translate3d para forzar aceleración por GPU: la animación vive en su
-   propia capa y no se repinta junto con el resto al scrollear (menos trabitas). */
 @keyframes infinite-scroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-100%, 0, 0); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* CAMBIO VITAL: Ahora es -100% */
 }
 
 .animate-infinite-scroll {
   /* Velocidad lenta pero no excesiva: 40s para leer bien los logos sin que se sienta detenido */
   animation: infinite-scroll 40s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 /* Esta clase pausa ambos vagones al mismo tiempo cuando pasas el mouse */
