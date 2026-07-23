@@ -51,11 +51,11 @@ body::-webkit-scrollbar {
   animation-play-state: paused;
 }
 
-/* En celulares el carrusel avanza un poco más rápido para que no se sienta lento
-   con menos logos visibles a la vez */
+/* En celulares el carrusel va más lento para que se sienta calmo y fluido,
+   no caótico al pasar tan rápido en una pantalla chica */
 @media (max-width: 640px) {
   .animate-infinite-scroll {
-    animation-duration: 28s;
+    animation-duration: 60s;
   }
 }
 
