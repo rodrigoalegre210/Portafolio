@@ -75,9 +75,7 @@ img {
   }
 }
 
-/* Respeta a quienes piden reducir el movimiento: frena el carrusel */
-@media (prefers-reduced-motion: reduce) {
-  .animate-infinite-scroll {
-    animation: none;
-  }
-}
+/* Nota: el carrusel es contenido de la sección (una marquesina de logos), no un
+   adorno, por eso NO se apaga con prefers-reduced-motion. Si lo apagáramos, en los
+   escritorios que tienen "reducir animaciones" activado (como Windows con los efectos
+   visuales desactivados) los logos quedarían estáticos y la sección se vería rota. */
