@@ -44,10 +44,14 @@ img {
   user-select: none;
 }
 
-/* Por si algo llegara a seleccionarse, que el resaltado sea discreto y no un bloque celeste */
+/* Selección invisible: la interfaz es tipo "sistema operativo" y no hay nada para
+   copiar. Así, aunque un arrastre llegue a seleccionar algo (p. ej. sobre los logos
+   del carrusel mientras se mueve), NO aparecen esos "pixeles celestes". */
 ::selection {
-  background: rgba(0, 243, 255, 0.2);
-  color: #ffffff;
+  background: transparent;
+}
+::-moz-selection {
+  background: transparent;
 }
 
 /* === Animación para el Carrusel Infinito === */
@@ -60,6 +64,13 @@ img {
   /* Velocidad lenta pero no excesiva: 40s para leer bien los logos sin que se sienta detenido */
   animation: infinite-scroll 40s linear infinite;
   will-change: transform;
+}
+
+/* Los logos no son blanco de eventos: así no se pueden seleccionar/arrastrar mientras
+   la marquesina se mueve. El clic igual llega al enlace contenedor y el hover funciona
+   porque los efectos son a nivel del grupo (group-hover), no de la imagen. */
+.carousel-track img {
+  pointer-events: none;
 }
 
 /* Esta clase pausa ambos vagones al mismo tiempo cuando pasas el mouse */
