@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative w-full min-h-screen flex items-center justify-center px-6 py-24 z-10">
-      
+    <section id="about" className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 md:py-24 z-10">
+
       {/* Contenedor estilo cristal oscuro (Glassmorphism) */}
-      <div className="max-w-6xl w-full bg-[#050505]/60 backdrop-blur-md border border-cyan-500/30 p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
+      <div className="max-w-6xl w-full bg-[#050505]/60 backdrop-blur-md border border-cyan-500/30 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
         
         {/* Cabecera de la ventana de terminal (CORREGIDA Y ESTILIZADA) */}
         {/* Agregamos "items-center" para que los botones y el texto queden perfectamente alineados */}
@@ -17,7 +17,7 @@ export default function AboutSection() {
           {/* LED 3: Cian Neón (Activo / Parpadeando) */}
           <span className="w-3 h-3 bg-[#00f3ff]/80 rounded-sm shadow-[0_0_8px_rgba(0,243,255,0.8)] animate-pulse"></span>
           
-          <span className="ml-4 font-mono text-xs text-cyan-600 tracking-widest">~/archivos_clasificados/agente_id.sys</span>
+          <span className="ml-2 sm:ml-4 font-mono text-[10px] sm:text-xs text-cyan-600 tracking-wider sm:tracking-widest truncate">~/archivos_clasificados/agente_id.sys</span>
         </div>
 
         {/* Título de la sección */}
@@ -25,11 +25,11 @@ export default function AboutSection() {
           01. REGISTRO_DE_IDENTIDAD
         </h2>
 
-        {/* Contenedor Flex Estricto: Fuerza FOTO a la izquierda y TEXTO a la derecha */}
-        <div className="flex flex-row gap-10 items-start">
-          
+        {/* En móvil se apila (foto arriba, datos abajo); en escritorio queda foto a la izquierda y texto a la derecha */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start">
+
           {/* Columna 1: Tu Foto (Ancho fijo para que no se achique) */}
-          <div className="w-[250px] shrink-0 flex flex-col items-center gap-4">
+          <div className="w-[220px] sm:w-[250px] shrink-0 flex flex-col items-center gap-4">
             <div className="relative w-full h-[250px] border-2 border-cyan-500/50 p-1 bg-black shadow-[0_0_20px_rgba(0,243,255,0.2)]">
               {/* Aquí colocamos tu foto temporalmente comentada hasta que la subas */}
                <Image 

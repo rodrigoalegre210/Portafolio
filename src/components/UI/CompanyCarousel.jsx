@@ -20,9 +20,9 @@ export default function CompanyCarousel() {
         [ HISTORIAL_LABORAL_VERIFICADO ]
       </span>
 
-      {/* Sombras de desvanecimiento en los bordes */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
+      {/* Sombras de desvanecimiento en los bordes (más finas en móvil para no tapar los logos) */}
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
 
       {/* PISTA DEL CARRUSEL */}
       <div className="flex w-full carousel-track">
@@ -35,7 +35,7 @@ export default function CompanyCarousel() {
               href={company.url !== "#" ? company.url : null} 
               target={company.url !== "#" ? "_blank" : "_self"}
               rel="noopener noreferrer"
-              className="w-[250px] shrink-0 flex flex-col items-center justify-center px-10 border-x border-cyan-900/30 group cursor-pointer"
+              className="w-[170px] sm:w-[250px] shrink-0 flex flex-col items-center justify-center px-6 sm:px-10 border-x border-cyan-900/30 group cursor-pointer"
             >
               <div className="relative h-16 w-32 flex items-center justify-center">
                 <Image 
@@ -61,7 +61,7 @@ export default function CompanyCarousel() {
               href={company.url !== "#" ? company.url : null} 
               target={company.url !== "#" ? "_blank" : "_self"}
               rel="noopener noreferrer"
-              className="w-[250px] shrink-0 flex flex-col items-center justify-center px-10 border-x border-cyan-900/30 group cursor-pointer"
+              className="w-[170px] sm:w-[250px] shrink-0 flex flex-col items-center justify-center px-6 sm:px-10 border-x border-cyan-900/30 group cursor-pointer"
             >
               <div className="relative h-16 w-32 flex items-center justify-center">
                 <Image 

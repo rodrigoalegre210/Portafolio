@@ -28,17 +28,17 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="relative w-full min-h-screen flex items-center justify-center px-6 py-24 z-10">
-      
+    <section id="projects" className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 md:py-24 z-10">
+
       {/* Contenedor principal estilo cristal oscuro */}
-      <div className="max-w-6xl w-full bg-[#050505]/60 backdrop-blur-md border border-cyan-500/30 p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
+      <div className="max-w-6xl w-full bg-[#050505]/60 backdrop-blur-md border border-cyan-500/30 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
         
         {/* Cabecera de la ventana de terminal */}
         <div className="flex items-center gap-2 border-b border-cyan-500/30 pb-4 mb-8">
           <span className="w-3 h-3 bg-[#ff003c]/80 rounded-sm shadow-[0_0_8px_rgba(255,0,60,0.6)]"></span>
           <span className="w-3 h-3 bg-[#0055ff]/80 rounded-sm shadow-[0_0_8px_rgba(0,85,255,0.6)]"></span>
           <span className="w-3 h-3 bg-[#00f3ff]/80 rounded-sm shadow-[0_0_8px_rgba(0,243,255,0.8)] animate-pulse"></span>
-          <span className="ml-4 font-mono text-xs text-cyan-600 tracking-widest">~/archivos_clasificados/expedientes_proyectos.db</span>
+          <span className="ml-2 sm:ml-4 font-mono text-[10px] sm:text-xs text-cyan-600 tracking-wider sm:tracking-widest truncate">~/archivos_clasificados/expedientes_proyectos.db</span>
         </div>
 
         <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-widest mb-10 drop-shadow-[0_0_10px_rgba(0,243,255,0.4)]">
@@ -82,7 +82,7 @@ export default function ProjectsSection() {
               {/* Bloque Derecho: Información */}
               <div className="p-6 flex-1 flex flex-col justify-between z-10">
                 <div>
-                  <h3 className="text-xl font-bold text-cyan-300 tracking-widest mb-3 group-hover:text-cyan-100 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-cyan-300 tracking-wider sm:tracking-widest mb-3 group-hover:text-cyan-100 transition-colors break-words">
                     <span className="text-cyan-600 group-hover:text-cyan-400 transition-colors">./</span>{project.title}
                   </h3>
                   <p className="font-mono text-sm text-cyan-100/70 leading-relaxed mb-6">

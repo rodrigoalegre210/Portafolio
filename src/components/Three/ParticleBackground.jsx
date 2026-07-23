@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useBoot } from "@/components/UI/BootContext";
@@ -42,8 +42,7 @@ function DataCore({ revealed }) {
 }
 
 // 2. La Nube de Partículas
-function Particles() {
-  const count = 3000;
+function Particles({ count }) {
   const pointsRef = useRef();
 
   const [positions, colors] = useMemo(() => {
@@ -91,9 +90,20 @@ function Particles() {
 export default function ParticleBackground() {
   const { booted } = useBoot();
 
+  // En celulares reducimos la densidad de partículas para que el 3D no
+  // consuma tanta batería/GPU. Se decide una vez, del lado del cliente.
+  const [count, setCount] = useState(3000);
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 768px)").matches;
+    setCount(mobile ? 1200 : 3000);
+  }, []);
+
   return (
     <Canvas
       camera={{ position: [0, 0, 4] }}
+      // Limitamos el pixel ratio: los celulares suelen tener DPR 3 y renderizar
+      // a esa resolución es innecesariamente pesado para un fondo decorativo.
+      dpr={[1, 1.5]}
       style={{
         position: "fixed",
         top: 0,
@@ -110,7 +120,7 @@ export default function ParticleBackground() {
       {/* Niebla oscura para dar profundidad infinita */}
       <fog attach="fog" args={["#050505", 2, 10]} />
       <DataCore revealed={booted} />
-      <Particles />
+      <Particles count={count} />
     </Canvas>
   );
 }

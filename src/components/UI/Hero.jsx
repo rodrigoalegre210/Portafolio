@@ -31,7 +31,7 @@ export default function Hero() {
       <h1
         {...reveal(
           1000,
-          `${orbitron.className} text-center text-4xl md:text-7xl font-black tracking-[0.12em] leading-tight text-transparent bg-clip-text bg-gradient-to-b from-cyan-200 via-cyan-400 to-cyan-800 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]`
+          `${orbitron.className} text-center text-3xl sm:text-4xl md:text-7xl font-black tracking-[0.08em] sm:tracking-[0.12em] leading-tight text-transparent bg-clip-text bg-gradient-to-b from-cyan-200 via-cyan-400 to-cyan-800 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]`
         )}
       >
         CIENCIA DE DATOS
@@ -40,12 +40,12 @@ export default function Hero() {
       </h1>
 
       {/* Rol */}
-      <div {...reveal(1250, "flex items-center gap-4 mt-6 font-mono")}>
-        <span className="w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
-        <p className="text-cyan-100 text-xs md:text-base tracking-[0.25em] [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]">
+      <div {...reveal(1250, "flex items-center gap-3 md:gap-4 mt-6 font-mono")}>
+        <span className="hidden sm:block w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
+        <p className="text-center text-cyan-100 text-[10px] sm:text-xs md:text-base tracking-[0.15em] sm:tracking-[0.25em] [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]">
           MACHINE LEARNING <span className="text-cyan-500">//</span> AUTOMATIZACIÓN <span className="text-cyan-500">//</span> DATOS EN PRODUCCIÓN
         </p>
-        <span className="w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
+        <span className="hidden sm:block w-8 md:w-12 h-[1px] bg-cyan-500/50"></span>
       </div>
 
       {/* Propuesta de valor */}
