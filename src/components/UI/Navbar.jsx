@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-10 py-4 md:py-5 bg-[#050505]/40 backdrop-blur-md border-b border-cyan-500/20 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-10 py-4 md:py-5 bg-[#050505]/85 md:bg-[#050505]/40 backdrop-blur-none md:backdrop-blur-md border-b border-cyan-500/20 transition-all duration-700 ease-out ${
         booted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       }`}
       style={{ transitionDelay: "700ms" }}

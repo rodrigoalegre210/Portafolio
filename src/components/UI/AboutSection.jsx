@@ -5,7 +5,7 @@ export default function AboutSection() {
     <section id="about" className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 md:py-24 z-10">
 
       {/* Contenedor estilo cristal oscuro (Glassmorphism) */}
-      <div className="max-w-6xl w-full bg-[#050505]/60 backdrop-blur-md border border-cyan-500/30 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
+      <div className="max-w-6xl w-full bg-[#050505]/85 sm:bg-[#050505]/60 backdrop-blur-none sm:backdrop-blur-md border border-cyan-500/30 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,243,255,0.05)]">
         
         {/* Cabecera de la ventana de terminal (CORREGIDA Y ESTILIZADA) */}
         {/* Agregamos "items-center" para que los botones y el texto queden perfectamente alineados */}

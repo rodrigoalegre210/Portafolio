@@ -13,7 +13,7 @@ export default function CompanyCarousel() {
   const trainCar = [...companies, ...companies, ...companies, ...companies];
 
   return (
-    <section className="relative w-full py-8 bg-[#050505] border-y border-cyan-500/20 z-10 overflow-hidden flex flex-col items-center select-none">
+    <section className="relative isolate w-full py-8 bg-[#050505] border-y border-cyan-500/20 z-10 overflow-hidden flex flex-col items-center select-none">
       
       {/* CAMBIO ACÁ: Título más claro y letra un poco más grande (text-xs en lugar de text-[10px]) */}
       <span className="font-mono text-[10px] sm:text-xs text-cyan-500 tracking-wider sm:tracking-widest uppercase mb-8 sm:mb-10 px-3 sm:px-4 py-1 border border-cyan-900/50 bg-cyan-950/20 shadow-[0_0_10px_rgba(0,243,255,0.1)] text-center">
