@@ -13,10 +13,10 @@ export default function CompanyCarousel() {
   const trainCar = [...companies, ...companies, ...companies, ...companies];
 
   return (
-    <section className="relative w-full py-8 bg-[#050505] border-y border-cyan-500/20 z-10 overflow-hidden flex flex-col items-center">
+    <section className="relative w-full py-8 bg-[#050505] border-y border-cyan-500/20 z-10 overflow-hidden flex flex-col items-center select-none">
       
       {/* CAMBIO ACÁ: Título más claro y letra un poco más grande (text-xs en lugar de text-[10px]) */}
-      <span className="font-mono text-xs text-cyan-500 tracking-widest uppercase mb-10 px-4 py-1 border border-cyan-900/50 bg-cyan-950/20 shadow-[0_0_10px_rgba(0,243,255,0.1)]">
+      <span className="font-mono text-[10px] sm:text-xs text-cyan-500 tracking-wider sm:tracking-widest uppercase mb-8 sm:mb-10 px-3 sm:px-4 py-1 border border-cyan-900/50 bg-cyan-950/20 shadow-[0_0_10px_rgba(0,243,255,0.1)] text-center">
         [ HISTORIAL_LABORAL_VERIFICADO ]
       </span>
 
@@ -38,15 +38,16 @@ export default function CompanyCarousel() {
               className="w-[170px] sm:w-[250px] shrink-0 flex flex-col items-center justify-center px-6 sm:px-10 border-x border-cyan-900/30 group cursor-pointer"
             >
               <div className="relative h-16 w-32 flex items-center justify-center">
-                <Image 
-                  src={company.logo} 
+                <Image
+                  src={company.logo}
                   alt={`Logo corporativo de ${company.name}`}
                   fill
-                  className="object-contain opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.8)] transition-all duration-500"
+                  draggable={false}
+                  className="object-contain opacity-70 grayscale-0 sm:opacity-40 sm:grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.8)] transition-all duration-500"
                 />
               </div>
               
-              <span className="font-mono text-xs md:text-sm font-bold text-cyan-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]">
+              <span className="font-mono text-[10px] sm:text-sm font-bold text-cyan-400 mt-3 sm:mt-4 opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity tracking-wider sm:tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]">
                 {company.name}
               </span>
             </a>
@@ -64,15 +65,16 @@ export default function CompanyCarousel() {
               className="w-[170px] sm:w-[250px] shrink-0 flex flex-col items-center justify-center px-6 sm:px-10 border-x border-cyan-900/30 group cursor-pointer"
             >
               <div className="relative h-16 w-32 flex items-center justify-center">
-                <Image 
-                  src={company.logo} 
+                <Image
+                  src={company.logo}
                   alt={`Logo corporativo de ${company.name}`}
                   fill
-                  className="object-contain opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.8)] transition-all duration-500"
+                  draggable={false}
+                  className="object-contain opacity-70 grayscale-0 sm:opacity-40 sm:grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.8)] transition-all duration-500"
                 />
               </div>
               
-              <span className="font-mono text-xs md:text-sm font-bold text-cyan-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]">
+              <span className="font-mono text-[10px] sm:text-sm font-bold text-cyan-400 mt-3 sm:mt-4 opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity tracking-wider sm:tracking-widest group-hover:drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]">
                 {company.name}
               </span>
             </a>

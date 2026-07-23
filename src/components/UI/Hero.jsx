@@ -21,7 +21,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen pointer-events-none py-20 px-6">
+    <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-svh pointer-events-none py-24 sm:py-20 px-6">
       {/* Backdrop oscuro radial: separa el texto del fondo 3D (partículas + esfera)
           sin tapar las partículas de los bordes. Queda por encima del canvas (z-0)
           pero por debajo del contenido del hero. */}
@@ -34,9 +34,8 @@ export default function Hero() {
           `${orbitron.className} text-center text-3xl sm:text-4xl md:text-7xl font-black tracking-[0.08em] sm:tracking-[0.12em] leading-tight text-transparent bg-clip-text bg-gradient-to-b from-cyan-200 via-cyan-400 to-cyan-800 drop-shadow-[0_0_25px_rgba(0,243,255,0.5)]`
         )}
       >
-        CIENCIA DE DATOS
-        <br />
-        &amp; DESARROLLO DE IA
+        <span className="block max-w-full break-words">CIENCIA DE DATOS</span>
+        <span className="block max-w-full break-words">&amp; DESARROLLO DE IA</span>
       </h1>
 
       {/* Rol */}
@@ -62,18 +61,18 @@ export default function Hero() {
       <div
         {...reveal(
           1750,
-          "mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 pointer-events-auto"
+          "mt-8 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full max-w-xs sm:max-w-none sm:w-auto pointer-events-auto"
         )}
       >
         <a
           href="#projects"
-          className={`${orbitron.className} group relative px-8 py-3 font-bold text-xs md:text-sm tracking-widest text-black bg-cyan-400 hover:bg-cyan-300 transition-all shadow-[0_0_20px_rgba(0,243,255,0.4)] hover:shadow-[0_0_30px_rgba(0,243,255,0.7)]`}
+          className={`${orbitron.className} group relative px-8 py-3.5 sm:py-3 font-bold text-xs md:text-sm tracking-widest text-center text-black bg-cyan-400 hover:bg-cyan-300 transition-all shadow-[0_0_20px_rgba(0,243,255,0.4)] hover:shadow-[0_0_30px_rgba(0,243,255,0.7)]`}
         >
           VER PROYECTOS
         </a>
         <a
           href="#about"
-          className={`${orbitron.className} px-8 py-3 font-bold text-xs md:text-sm tracking-widest text-cyan-300 border border-cyan-500/50 hover:border-cyan-300 hover:bg-cyan-500/10 transition-all`}
+          className={`${orbitron.className} px-8 py-3.5 sm:py-3 font-bold text-xs md:text-sm tracking-widest text-center text-cyan-300 border border-cyan-500/50 hover:border-cyan-300 hover:bg-cyan-500/10 transition-all`}
         >
           REGISTRO DE IDENTIDAD
         </a>

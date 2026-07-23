@@ -2,17 +2,36 @@
 
 html {
   scroll-behavior: smooth;
+  /* Evita que el navegador móvil reescale el texto al rotar el celular */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mata cualquier desborde horizontal: sin esto el celular deja "bajar el zoom"
+   porque el contenido termina siendo más ancho que la pantalla. */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   background-color: #050505;
   color: white;
-  scrollbar-width: none; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
+  /* Sin el flash celeste/gris al tocar enlaces y botones en el celular */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* Selección de texto intencional (cian tenue) en vez del azul gigante por defecto */
+::selection {
+  background: rgba(0, 243, 255, 0.25);
+  color: #ffffff;
 }
 
 /* === Animación para el Carrusel Infinito === */
@@ -30,4 +49,19 @@ body::-webkit-scrollbar {
 /* Esta clase pausa ambos vagones al mismo tiempo cuando pasas el mouse */
 .carousel-track:hover .animate-infinite-scroll {
   animation-play-state: paused;
+}
+
+/* En celulares el carrusel avanza un poco más rápido para que no se sienta lento
+   con menos logos visibles a la vez */
+@media (max-width: 640px) {
+  .animate-infinite-scroll {
+    animation-duration: 28s;
+  }
+}
+
+/* Respeta a quienes piden reducir el movimiento: frena el carrusel */
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll {
+    animation: none;
+  }
 }

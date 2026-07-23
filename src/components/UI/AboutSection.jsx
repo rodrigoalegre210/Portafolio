@@ -21,7 +21,7 @@ export default function AboutSection() {
         </div>
 
         {/* Título de la sección */}
-        <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-widest mb-10 drop-shadow-[0_0_10px_rgba(0,243,255,0.4)]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-wider sm:tracking-widest mb-8 sm:mb-10 drop-shadow-[0_0_10px_rgba(0,243,255,0.4)] break-words">
           01. REGISTRO_DE_IDENTIDAD
         </h2>
 
@@ -51,7 +51,7 @@ export default function AboutSection() {
           </div>
 
           {/* Columna 2: Datos del Perfil (Ocupa el resto del espacio) */}
-          <div className="flex-1 space-y-6 font-mono text-sm md:text-base text-cyan-100/80 leading-relaxed">
+          <div className="w-full flex-1 space-y-5 sm:space-y-6 font-mono text-[13px] sm:text-sm md:text-base text-cyan-100/80 leading-relaxed">
             <p>
               <span className="text-cyan-400 font-bold">&gt; ROL_PRIMARIO:</span> Científico de Datos & Desarrollador de IA.
             </p>

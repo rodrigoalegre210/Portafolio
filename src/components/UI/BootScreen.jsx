@@ -145,7 +145,7 @@ export default function BootScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050505] transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-y-auto py-8 bg-[#050505] transition-opacity duration-700 ${
         done ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
       role="status"
@@ -162,21 +162,21 @@ export default function BootScreen() {
         }}
       />
 
-      <div className="relative z-10 flex w-full max-w-md flex-col items-center px-6">
+      <div className="relative z-10 flex w-full max-w-md flex-col items-center px-5 sm:px-6">
         {/* Título */}
         <h1
-          className={`${orbitron.className} text-4xl md:text-5xl font-black tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-cyan-700 drop-shadow-[0_0_20px_rgba(0,243,255,0.6)]`}
+          className={`${orbitron.className} text-3xl sm:text-4xl md:text-5xl font-black tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-cyan-700 drop-shadow-[0_0_20px_rgba(0,243,255,0.6)]`}
         >
           SYS.OP
         </h1>
-        <div className="mt-3 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-cyan-500/70">
-          <span className="h-[1px] w-8 bg-cyan-500/40" />
+        <div className="mt-3 flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] text-cyan-500/70 whitespace-nowrap">
+          <span className="h-[1px] w-6 sm:w-8 bg-cyan-500/40" />
           BOOT SEQUENCE V_1.0.4
-          <span className="h-[1px] w-8 bg-cyan-500/40" />
+          <span className="h-[1px] w-6 sm:w-8 bg-cyan-500/40" />
         </div>
 
         {/* Log del sistema (tipeo + cursor) */}
-        <div className="mt-10 h-32 w-full font-mono text-xs text-cyan-300/80">
+        <div className="mt-8 sm:mt-10 h-32 w-full font-mono text-[11px] sm:text-xs text-cyan-300/80">
           {lines.map((line, i) => (
             <p key={i} className="mb-1 tracking-wide drop-shadow-[0_0_6px_rgba(0,243,255,0.3)]">
               {line}

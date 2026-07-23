@@ -13,7 +13,7 @@ export default function SkillsSection() {
           <span className="ml-2 sm:ml-4 font-mono text-[10px] sm:text-xs text-cyan-600 tracking-wider sm:tracking-widest truncate">~/archivos_clasificados/modulos_sistema.exe</span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-widest mb-10 drop-shadow-[0_0_10px_rgba(0,243,255,0.4)]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 tracking-wider sm:tracking-widest mb-8 sm:mb-10 drop-shadow-[0_0_10px_rgba(0,243,255,0.4)] break-words">
           02. MÓDULOS_DE_SISTEMA
         </h2>
 
